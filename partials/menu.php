@@ -1,20 +1,23 @@
 <?php
-
-require_once('../classes/website/allClasses.php') ;
-//include('./config/model_website.php');
+session_start();
+include __DIR__ . "../../config/Database.php";
+$countCart = $_SESSION['cartCountItems'] ?? 0;
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <!-- Important to make website responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Website</title>
+    <script src="../jsFiles/jquery.min.js"></script>
 
     <!-- Link our CSS file -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <!-- Navbar Section Starts Here -->
     <section class="navbar">
@@ -37,7 +40,9 @@ require_once('../classes/website/allClasses.php') ;
                         <a href="foods.php">Foods</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="shopCart.php">Cart
+                            <span id="cartCountItems"><?= $countCart; ?></span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -45,4 +50,3 @@ require_once('../classes/website/allClasses.php') ;
             <div class="clearfix"></div>
         </div>
     </section>
-    

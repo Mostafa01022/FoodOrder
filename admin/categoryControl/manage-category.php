@@ -1,7 +1,12 @@
 <?php
 include_once("../partials/menu.php");
+include __DIR__ . "../../../classes/management/classManageCategory.php";
+
 $obj = new manangeCategory();
 $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+if (isset($_GET['page']) && $_GET['page'] <= 0) {
+    header('location:http://localhost/php.course/food-order/admin/categoryControl/manage-category.php');
+}
 $catCount = $obj->categoryCount();
 $limit = 3;
 $pagesCount = ceil($catCount / $limit);
@@ -104,23 +109,19 @@ $data = $obj->displayCategory($limit, $page);
                 if ($data != "") {
                     foreach ($data as $value) {
                 ?>
-                        <tr id="category_row_<?=$value['id']?>">
+                        <tr id="category_row_<?= $value['id'] ?>">
                             <td><?php echo $sn++; ?></td>
                             <td class="category_title"><?php echo $value['title']; ?></td>
-                            <td  class="category_img">
+                            <td class="category_img">
                                 <?php
-
                                 if ($value['image_name'] != "") {
                                 ?>
                                     <img src='../../images/category/<?php echo $value['image_name']; ?>' width="100px">
                                 <?php
-
                                 } else {
-
                                     echo "<div color='red'>Image Not Found</div>";
                                 }
                                 ?>
-
                             </td>
                             <td class="category_featured"><?php echo $value['featured']; ?></td>
                             <td class="category_active"><?php echo $value['active']; ?></td>
@@ -169,7 +170,7 @@ $data = $obj->displayCategory($limit, $page);
     </nav>
     <br>
 </div>
-<script src="../../jQueryFiles/categoryAction.js?v=<?=filemtime("../../jQueryFiles/categoryAction.js")?>"></script>
+<script src="../../jsFiles/categoryActions.js?v=<?= filemtime("../../jsFiles/categoryActions.js") ?>"></script>
 
 
 <?php

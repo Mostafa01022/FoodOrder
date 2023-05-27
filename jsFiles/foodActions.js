@@ -1,17 +1,17 @@
 
 //////====ADD Food ====////
 
-$(document).on("click", "#add_btn", function() {
+$(document).on("click", "#add_btn", function () {
     $("#addFoodPopup").show();
     $(".tbl-full").hide();
     $("#add_btn").hide();
 
-    $("#closeAddForm").on("click", function() {
+    $("#closeAddForm").on("click", function () {
         $("#addFoodPopup").hide();
         $(".tbl-full").show();
         $("#add_btn").show();
     });
-    $("#addFoodForm").on("submit", function(e) {
+    $("#addFoodForm").on("submit", function (e) {
         e.preventDefault();
 
         $.ajax({
@@ -21,7 +21,7 @@ $(document).on("click", "#add_btn", function() {
             dataType: 'json',
             processData: false,
             contentType: false,
-            success: function(result, status) {
+            success: function (result, status) {
                 console.log(result);
                 console.log(status);
                 $("#addFoodPopup").hide();
@@ -44,7 +44,7 @@ $(document).on("click", "#add_btn", function() {
             </tr>`)
 
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.log(xhr);
                 console.log(status);
                 console.log(error);
@@ -54,16 +54,16 @@ $(document).on("click", "#add_btn", function() {
 });
 //////====UPDATE FOOD ====////
 
-$(document).on("click", "#update_btn", function() {
-    
+$(document).on("click", "#update_btn", function () {
+
     $.ajax({
         url: 'foodActions.php',
         method: 'get',
         data: {
-            update_id : $("#update_btn").val(),
+            update_id: $("#update_btn").val(),
         },
         dataType: 'json',
-        success: function(result, status) {
+        success: function (result, status) {
             console.log(result);
             console.log(status);
             $("#update_id").val(result.data.id);
@@ -73,17 +73,17 @@ $(document).on("click", "#update_btn", function() {
     $("#updateFoodPopup").show();
     $(".tbl-full").hide();
     $("#add_btn").hide();
-    
-    $("#closeUpdateForm").on("click", function() {
+
+    $("#closeUpdateForm").on("click", function () {
         $("#updateFoodPopup").hide();
         $(".tbl-full").show();
         $("#add_btn").show();
     });
-    $("#updateFoodForm").on("submit", function(e) {
+    $("#updateFoodForm").on("submit", function (e) {
 
         e.preventDefault();
         let id = $("#update_id").val();
-        let trRow = $("#food_row_"+id);
+        let trRow = $("#food_row_" + id);
 
 
         $.ajax({
@@ -93,7 +93,7 @@ $(document).on("click", "#update_btn", function() {
             dataType: 'json',
             processData: false,
             contentType: false,
-            success: function(result, status) {
+            success: function (result, status) {
                 console.log(result);
                 console.log(status);
                 $("#updateFoodPopup").hide();
@@ -109,7 +109,7 @@ $(document).on("click", "#update_btn", function() {
                 trRow.find(".food_description").html(result.data.description);
 
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.log(xhr);
                 console.log(status);
                 console.log(error);
@@ -122,7 +122,7 @@ $(document).on("click", "#update_btn", function() {
 ///====DELETE food====////
 
 
-$(document).on("click", "#delete_food_btn", function() {
+$(document).on("click", "#delete_food_btn", function () {
     let btn = $(this);
     $.ajax({
         url: "foodActions.php",
@@ -132,7 +132,7 @@ $(document).on("click", "#delete_food_btn", function() {
             image_name: btn.attr("image_name"),
         },
         dataType: "json",
-        success: function(result, status) {
+        success: function (result, status) {
             if (result.success == true) {
                 console.log(result);
                 console.log(status);
@@ -140,22 +140,22 @@ $(document).on("click", "#delete_food_btn", function() {
                 btn.closest("tr").remove();
             }
         },
-        error: function(result, status) {
+        error: function (result, status) {
             if (result.success == true) {
                 console.log(result);
                 console.log(status);
             }
         }
-    });   
+    });
 
 });
 
 //====search======////
 
-$(document).ready(function() {
-    $(".search").on("keyup", function() {
+$(document).ready(function () {
+    $(".search").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $(".mytable tr").filter(function() {
+        $(".mytable tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });

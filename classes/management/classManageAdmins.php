@@ -1,8 +1,7 @@
 <?php
 
-use LDAP\Result;
 
-class manageAdmins extends connection
+class manageAdmins extends Database
 {
 
     public function showAdmins()
@@ -21,9 +20,9 @@ class manageAdmins extends connection
         if ($result->num_rows > 0) {
             $adminData = $result->fetch_assoc();
             if ($adminData) {
-                return $result= ['success' => true, 'message' => "<div class='success'>id is found</div>",'data' => $adminData];
+                return $result = ['success' => true, 'message' => "<div class='success'>id is found</div>", 'data' => $adminData];
             } else {
-                return $result= ['success' => false, 'message' => "<div class='success'>id not found</div>"];
+                return $result = ['success' => false, 'message' => "<div class='success'>id not found</div>"];
             }
         }
     }
@@ -34,9 +33,9 @@ class manageAdmins extends connection
         $result = $this->conn->query("DELETE FROM tbl_admin where id ='$id'");
 
         if ($result) {
-            return $result= ['success' => true, 'message' => "<div class='success'>Admin Deleted Successfully</div>"];
+            return $result = ['success' => true, 'message' => "<div class='success'>Admin Deleted Successfully</div>"];
         } else {
-            return $result= ['success' => false, 'message' => "<div class='success'>Failed To Delete Admin .Try Later .</div>"];
+            return $result = ['success' => false, 'message' => "<div class='success'>Failed To Delete Admin .Try Later .</div>"];
         }
     }
 
@@ -51,14 +50,16 @@ class manageAdmins extends connection
             username='$username'
             where id=$id ");
         if ($result == true) {
-            return $result = ['success' => true, 'data' => [ 'full_name' => $full_name,
-            'username' => $username],'message' => "<div class='success'>Admin Updated Successfully</div>" ];
+            return $result = ['success' => true, 'data' => [
+                'full_name' => $full_name,
+                'username' => $username
+            ], 'message' => "<div class='success'>Admin Updated Successfully</div>"];
         } else {
-            return $result =['success' => false, 'message' => "<div class='error'>Failed To Update Admin .Try Later .</div>"];
+            return $result = ['success' => false, 'message' => "<div class='error'>Failed To Update Admin .Try Later .</div>"];
         }
     }
 
-   
+
 
     public function changePassword($post)
     {
@@ -71,14 +72,14 @@ class manageAdmins extends connection
         if ($data->num_rows > 0) {
             if ($new_password == $confirm_password) {
                 $result = $this->conn->query("UPDATE tbl_admin set password='$new_password' where id='$id'");
-                if($result){
-                    return $result = ['success' => true, 'message' => "<div class='success'>Password Updated Successfully.</div>" ];
-                }else{
-                    return $result =['success' => false, 'message' => "<div class='error'>Failed To change password .Try Later .</div>"];
+                if ($result) {
+                    return $result = ['success' => true, 'message' => "<div class='success'>Password Updated Successfully.</div>"];
+                } else {
+                    return $result = ['success' => false, 'message' => "<div class='error'>Failed To change password .Try Later .</div>"];
                 }
-            } 
+            }
         } else {
-            return $result =['success' => false, 'message' => "<div class='error'>current password is not true .</div>"];
+            return $result = ['success' => false, 'message' => "<div class='error'>current password is not true .</div>"];
         }
     }
 
@@ -91,7 +92,7 @@ class manageAdmins extends connection
         $result = $this->conn->query("INSERT INTO tbl_admin (full_name,username,password) 
             VALUES('$fullName','$username','$password') ");
         if ($result == true) {
-            return $result = ['success' => true, 'data' => ['full_name' => $fullName , 'username' =>$username ,'id' =>$this->conn->insert_id ], 'message' => "<div class='success'>Added Successfully</div>"];
+            return $result = ['success' => true, 'data' => ['full_name' => $fullName, 'username' => $username, 'id' => $this->conn->insert_id], 'message' => "<div class='success'>Added Successfully</div>"];
         } else {
             return $result = ['success' => false, 'message' => "<div class='success'>Not Added </div>"];
         }

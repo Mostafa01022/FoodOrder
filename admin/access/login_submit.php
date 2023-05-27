@@ -1,7 +1,12 @@
 <?php
 
-require_once('../../classes/connection/connection.php');
-require_once('../../classes/login/checkAdmin.php');
-$login = new checkAdmin();
-echo json_encode($login->check_admin($_POST));
+session_start();
+include __DIR__."../../../config/Database.php";
+include __DIR__."../../../classes/login/checkAdmin.php";
+
+if(isset($_POST['username']) and isset($_POST['password'])){
+
+    $login = new checkAdmin();
+    echo json_encode($login->check_admin($_POST));
+}
 ?>

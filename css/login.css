@@ -1,64 +1,67 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
-    
+
 }
-body{
+
+body {
 
     background-image: url('image/login.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
-.login{
-     background-color:rgb(225 220 220 / 50%);
+
+.login {
+    background-color: rgb(225 220 220 / 50%);
     font-weight: bold;
     font-size: large;
-    width:25% ;
+    width: 25%;
     border: 3px solid gray;
     margin: 4% auto;
     padding: 2%;
     text-align: center;
     border-radius: 10%;
-    }
+}
 
-    .btn-secondary{
-        background-color:#64ec8f ;
-        font-size: large;
-        padding: 4%;
-        border-radius: 10%;
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-    }
-    
-    
-    .btn-secondary:hover{
-        background-color:#2ed573;
-        cursor: pointer;
-    }
+.btn-secondary {
+    background-color: #64ec8f;
+    font-size: large;
+    padding: 4%;
+    border-radius: 10%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-    input{
 
-        width: 80%;
-        padding: 12px 12px;
-        margin: 8px 0;
-        display: inline-block;
-        box-sizing: border-box;
+.btn-secondary:hover {
+    background-color: #2ed573;
+    cursor: pointer;
+}
 
-    }
-a{
+input {
+
+    width: 80%;
+    padding: 12px 12px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+
+}
+
+a {
     text-decoration: none;
     color: rgb(35, 38, 221);
 }
- 
-.success{
 
-    color:#2ed573;
+.success {
+
+    color: #2ed573;
 }
 
-.error{
-    color:#ff4757;
+.error {
+    color: #ff4757;
 }

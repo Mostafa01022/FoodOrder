@@ -1,7 +1,13 @@
 <?php
 include_once("../partials/menu.php");
+include __DIR__ . "../../../classes/management/classManageFood.php";
+include __DIR__ . "../../../classes/management/classManageCategory.php";
+
 $displayFood = new manageFood();
 $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+if (isset($_GET['page']) && $_GET['page'] <= 0) {
+    header('location:http://localhost/php.course/food-order/admin/foodControl/manage-food.php');
+}
 $foodCount = $displayFood->foodCount();
 $limit = 3;
 $pagesCount = ceil($foodCount / $limit);
@@ -88,6 +94,7 @@ $dataCategory = $dataCategory->displayCategoryByActive();
                 <button type="button" name="close" id="closeAddForm" class="close-btn">Close</button>
             </form>
         </div>
+
         <div style="width: 30%;" class="popup" id="updateFoodPopup">
             <form id="updateFoodForm" method="post" enctype="multipart/form-data">
                 <h1>Update Food</h1>
@@ -170,7 +177,6 @@ $dataCategory = $dataCategory->displayCategoryByActive();
                 $sn = 1;
                 if ($data != "") {
                     foreach ($data as $value) {
-
                 ?>
                         <tr id="food_row_<?= $value['id'] ?>">
                             <td><?= $sn++; ?></td>
@@ -221,9 +227,7 @@ $dataCategory = $dataCategory->displayCategoryByActive();
         </ul>
     </nav>
     <br>
-    <script src="../../jQueryFiles/foodAction.js">
-
-    </script>
+    <script src="../../jsFiles/foodActions.js"> </script>
 </div>
 
 <?php

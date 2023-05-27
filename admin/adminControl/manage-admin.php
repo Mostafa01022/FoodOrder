@@ -1,5 +1,6 @@
 <?php
 include_once("../partials/menu.php");
+include __DIR__ . "../../../classes/management/classManageAdmins.php";
 
 $admin = new manageAdmins();
 $data = $admin->showAdmins();
@@ -7,7 +8,6 @@ $data = $admin->showAdmins();
 ?>
 
 <div class="main-content">
-
     <div class="wrapper">
         <h1> Admin Manage </h1>
         <br>
@@ -70,41 +70,41 @@ $data = $admin->showAdmins();
             </form>
         </div>
         <table class="tbl-full">
-        <thead>
-            <tr>
-                <th>S.N.</th>
-                <th>Full Name</th>
-                <th>Username</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody class="mytable">
-            <?php
-            $sn = 1;
-            if ($data != "") {
-                foreach ($data as $value) {
-            ?>
-                    <tr id="admin_row_<?=$value['id']?>">
-                        <td><?php echo $sn++; ?></td>
-                        <td class="admin_full_name"><?php echo $value['full_name']; ?></td>
-                        <td class="admin_username"><?php echo $value['username']; ?></td>
-                        <td style=" width:25%;">
-                            <button id="update_btn" value="<?= $value['id']; ?>" class=""><img title="Update" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/update.png" /></button>
-                            <button id="change_btn" value="<?= $value['id']; ?>" class=""><img title="change password" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/change.png" /></button>
-                            <button id="delete_btn" value="<?= $value['id']; ?>" class=""><img title="Delete" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/delete.png" /></button>
-                        </td>
-                    </tr>
-            <?php
+            <thead>
+                <tr>
+                    <th>S.N.</th>
+                    <th>Full Name</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="mytable">
+                <?php
+                $sn = 1;
+                if ($data != "") {
+                    foreach ($data as $value) {
+                ?>
+                        <tr id="admin_row_<?= $value['id'] ?>">
+                            <td><?php echo $sn++; ?></td>
+                            <td class="admin_full_name"><?php echo $value['full_name']; ?></td>
+                            <td class="admin_username"><?php echo $value['username']; ?></td>
+                            <td style=" width:25%;">
+                                <button id="update_btn" value="<?= $value['id']; ?>" class=""><img title="Update" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/update.png" /></button>
+                                <button id="change_btn" value="<?= $value['id']; ?>" class=""><img title="change password" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/change.png" /></button>
+                                <button id="delete_btn" value="<?= $value['id']; ?>" class=""><img title="Delete" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/delete.png" /></button>
+                            </td>
+                        </tr>
+                <?php
+                    }
+                } else {
+                    echo "<div class='error'> Admins Not Added</div>";
                 }
-            } else {
-                echo "<div class='error'> Admins Not Added</div>";
-            }
-            ?>
-        </tbody>
+                ?>
+            </tbody>
         </table>
     </div>
 </div>
-<script src="../../jQueryFiles/adminActions.js"></script>
+<script src="../../jsFiles/adminActions.js"></script>
 
 <?php
 include_once("../partials/footer.php");

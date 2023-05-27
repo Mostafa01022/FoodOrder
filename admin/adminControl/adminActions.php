@@ -1,5 +1,9 @@
 <?php
-include_once("../../classes/management/allClasses.php");
+
+session_start();
+include __DIR__ . "../../../config/Database.php";
+include __DIR__ . "../../../classes/management/classManageAdmins.php";
+
 $manageAdmins = new manageAdmins();
 
 if (

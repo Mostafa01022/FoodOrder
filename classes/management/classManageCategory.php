@@ -1,6 +1,6 @@
 <?php
 
-class manangeCategory extends connection
+class manangeCategory extends Database
 {
     protected $tableName = 'tbl_category';
 

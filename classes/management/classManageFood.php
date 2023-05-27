@@ -1,6 +1,6 @@
 <?php
 
-class manageFood extends connection
+class manageFood extends Database
 {
     public function displayFoods(int $limit = 5, int $page = 1)
     {

@@ -1,6 +1,8 @@
 <?php
 
 require_once('../partials/menu.php');
+require "../classes/website/classCategory.php";
+require "../classes/website/classFood.php";
 
 $displayCategory = new category();
 $displayFood = new food();
@@ -21,12 +23,6 @@ $dataFood = $displayFood->displayFoodByActive_Featured();
     </div>
 </section>
 
-<?php
-if (isset($_SESSION['order'])) {
-    echo $_SESSION['order'];
-    unset($_SESSION['order']);
-}
-?>
 <!-- CAtegories Section Starts Here -->
 <section class="categories">
     <div class="container">
@@ -56,63 +52,58 @@ if (isset($_SESSION['order'])) {
             echo "<div class='error'> Category Not Added</div>";
         }
         ?>
-
-
-
         <div class="clearfix"></div>
     </div>
 </section>
-
 <!-- fOOD MEnu Section Starts Here -->
 <section class="food-menu">
     <div class="container">
         <h2 class="text-center">Food Menu</h2>
-
         <?php
         if ($dataFood) {
             foreach ($dataFood as $value) {
         ?>
+                <form class="addToCartForm" method="post">
+                    <div class="food-menu-box">
+                        <div class="food-menu-img">
+                            <?php
+                            if ($value['image_name'] == '') {
+                                echo "<div class='error'> Image Not Available</div>";
+                            } else {
+                            ?>
+                                <img src="../images/food/<?php echo $value['image_name']; ?>" class="img-responsive img-curve">
+                        </div>
 
-                <div class="food-menu-box">
-                    <div class="food-menu-img">
-                        <?php
-                        if ($value['image_name'] == '') {
-                            echo "<div class='error'> Image Not Available</div>";
-                        } else {
-                        ?>
-                            <img src="../images/food/<?php echo $value['image_name']; ?>" class="img-responsive img-curve">
+                        <div class="food-menu-desc no-border">
+                            <h4><?php echo $value['title']; ?></h4>
+                            <input type="number" name="food_quantity" min="1" value="1">
+                            <input type="text" class="food-price" value="<?= '$ ' . $value['price']; ?>">
+                            <p class="food-detail">
+                                <?php echo $value['description']; ?>
+                            </p>
+                            <br>
+                            <input type="hidden" name="food_id" value="<?= $value['id'] ?>">
+                            <input type="hidden" name="food_title" value="<?= $value['title'] ?>">
+                            <input type="hidden" name="food_price" value="<?= $value['price'] ?>">
+                            <input type="hidden" name="add_to_cart">
+                            <button type="submit" class="btn btn-primary">Add To cart</button>
+                        </div>
                     </div>
-
-                    <div class="food-menu-desc">
-                        <h4><?php echo $value['title']; ?></h4>
-                        <p class="food-price"><?php echo '$ ' . $value['price']; ?></p>
-                        <p class="food-detail">
-                            <?php echo $value['description']; ?>
-                        </p>
-                        <br>
-
-                        <a href="order.php?id=<?php echo $value['id'] ?>" class="btn btn-primary">Order Now</a>
-                    </div>
-                </div>
-
+                </form>
     <?php
+                            }
                         }
+                    } else {
+                        echo "<div class='error'> Food Not Added</div>";
                     }
-                } else {
-                    echo "<div class='error'> Food Not Added</div>";
-                }
     ?>
-
-
     </div>
-
     <div class="clearfix"></div>
-
     </div>
-
     <p class="text-center">
         <a href="foods.php">See All Foods</a>
     </p>
+    <script src="../jsFiles/addToCart.js"></script>
 </section>
 <!-- fOOD Menu Section Ends Here -->
 <?php

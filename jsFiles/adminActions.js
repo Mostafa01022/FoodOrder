@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
     $("#add_form").on("submit", function (e) {
         e.preventDefault();
-        
+
         $.ajax({
             url: 'adminActions.php',
             method: 'post',
@@ -64,14 +64,14 @@ $(document).on("click", "#update_btn", function () {
     $("#updateUser").show();
     $(".tbl-full").hide();
     $("#add_btn").hide();
-    
+
     $("#close_update").on("click", function () {
-        
+
         $(".tbl-full").show();
         $("#add_btn").show();
         $("#updateUser").hide();
     });
-    
+
     $.ajax({
         method: 'get',
         url: 'adminActions.php',
@@ -94,7 +94,7 @@ $(document).on("click", "#update_btn", function () {
 
     $("#update_admin").on("click", function (e) {
         let id = $("#updateId").val();
-        let trRow = $("#admin_row_"+id);
+        let trRow = $("#admin_row_" + id);
 
         e.preventDefault();
         if ($('#updateFullName').val() == '' || $('#updateUsername').val() == '') {

@@ -1,25 +1,32 @@
 <?php
 include_once("../partials/menu.php");
+include __DIR__ . "../../../classes/management/classManageCategory.php";
+include __DIR__ . "../../../classes/management/classManageFood.php";
+include __DIR__ . "../../../classes/management/classManageOrder.php";
+
+$manangeCategory = new manangeCategory();
+$manageFood = new manageFood();
+$manageOrder = new manageOrder();
+
 ?>
 
 <div class="main-content">
     <div class="wrapper">
         <h1> Dashboard</h1>
         <br>
-
         <?php
-        if (isset($_SESSION['user'])) {
-            echo "<div class='success'> Hello ". $_SESSION['user']."</div>";
-            unset($_SESSION['user']);
+        if (isset($_SESSION['admin'])) {
+            echo "<div class='success'> Hello " . $_SESSION['admin'] . "</div>";
+            unset($_SESSION['admin']);
         }
         ?>
-        <br> <br>
+        <br>
+        <div id="action_message"></div>
+        <br>
         <div class=" col-4 text-center">
-
             <h1>
                 <?php
-                $count = new manangeCategory();
-                echo $count->categoryCount();
+                echo $manangeCategory->categoryCount();
                 ?>
             </h1></br>
             Category
@@ -27,8 +34,7 @@ include_once("../partials/menu.php");
         <div class=" col-4 text-center">
             <h1>
                 <?php
-                $count = new manageFood();
-                echo $count = $count->foodCount();
+                echo  $manageFood->foodCount();
                 ?>
             </h1></br>
             Food
@@ -36,8 +42,7 @@ include_once("../partials/menu.php");
         <div class=" col-4 text-center">
             <h1>
                 <?php
-                $count = new manageOrder();
-                echo $count = $count->orderCount();
+                echo  $manageOrder->orderCount();
                 ?>
             </h1></br>
             Total Orders
@@ -45,17 +50,13 @@ include_once("../partials/menu.php");
         <div class=" col-4 text-center">
             <h1>
                 <?php
-                $count = new manageOrder();
-                $count = $count->renuvue();
+                $count = $manageOrder->renuvue();
                 ?>
             </h1></br>
             Renuvue
         </div>
-
         <div class="clearfix"></div>
-
     </div>
-
 </div>
 
 <?php
