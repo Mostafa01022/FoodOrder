@@ -1,10 +1,12 @@
 <?php
 
 session_start();
-include __DIR__ . "../../../config/Database.php";
-include __DIR__ . "../../../classes/management/classManageOrder.php";
 
-$manageOrder = new manageOrder();
+include __DIR__ . "../../../vendor/autoload.php";
+
+use Management\ManageOrder;
+
+$manageOrder = new ManageOrder();
 
 if (isset($_POST['delete_id'])) {
 

@@ -1,8 +1,9 @@
 <?php
 include_once("../partials/menu.php");
-include __DIR__ . "../../../classes/management/classManageAdmins.php";
 
-$admin = new manageAdmins();
+use Management\ManageAdmins;
+
+$admin = new ManageAdmins();
 $data = $admin->showAdmins();
 
 ?>

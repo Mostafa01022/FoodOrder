@@ -1,11 +1,10 @@
 <?php
 
 require_once('../partials/menu.php');
-require "../classes/website/classCategory.php";
-require "../classes/website/classFood.php";
-
-$displayCategory = new category();
-$displayFood = new food();
+use Website\Category;
+use Website\Food;
+$displayCategory = new Category();
+$displayFood = new Food();
 $dataCat = $displayCategory->displayCategoryByActive_Featured();
 $dataFood = $displayFood->displayFoodByActive_Featured();
 

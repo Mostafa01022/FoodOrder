@@ -1,5 +1,10 @@
 <?php
-class category extends Database
+
+namespace Website;
+
+use Database;
+
+class Category extends Database
 {
 
   // function to add category 

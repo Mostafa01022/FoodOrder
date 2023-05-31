@@ -1,6 +1,10 @@
 <?php
 
-class searchedFood extends Database
+namespace Website;
+
+use Database;
+
+class SearchedFood extends Database
 {
     // function to validate inputs
 

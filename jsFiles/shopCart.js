@@ -74,6 +74,7 @@ $('#cancel_order').on('click', function () {
 // food_id  food_price food_total_price total_price
 
 $(".food_quantity").on("change", function () {
+
     let input = $(this);
     let inputTr = input.closest("tr");
     let food_quantity = parseInt(input.val());
@@ -107,7 +108,7 @@ function changeCartItem(inputTr, food_id, food_quantity, food_name, food_price) 
         success: function (result) {
             let food_total_price = food_quantity * food_price;
             inputTr.find(".food_total_price").val(food_total_price);
-            recalculateTotalPrice()
+            recalculateTotalPrice();
 
         },
         error: function (xhr, error) {

@@ -1,6 +1,9 @@
 <?php
 
-class manangeCategory extends Database
+namespace Management;
+use Database;
+
+class ManangeCategory extends Database
 {
     protected $tableName = 'tbl_category';
 

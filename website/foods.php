@@ -1,8 +1,9 @@
 <?php
 include_once('../partials/menu.php');
-require "../classes/website/classFood.php";
 
-$display = new food();
+use Website\Food;
+
+$display = new Food();
 $dataFood = $display->displayAllFoods();
 ?>
 

@@ -1,6 +1,5 @@
 <?php
 
-
 class checkAdmin extends Database
 {
 

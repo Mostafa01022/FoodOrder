@@ -1,10 +1,12 @@
 <?php
 
 session_start();
-include __DIR__ . "../../../config/Database.php";
-include __DIR__ . "../../../classes/management/classManageCategory.php";
 
-$manangeCategory = new manangeCategory();
+include __DIR__ . "../../../vendor/autoload.php";
+
+use Management\ManangeCategory;
+
+$manangeCategory = new ManangeCategory();
 //ADD CAT 
 
 if (isset($_POST['action'])) {

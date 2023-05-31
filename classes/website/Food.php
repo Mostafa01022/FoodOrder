@@ -1,6 +1,10 @@
 <?php
 
-class food extends Database
+namespace Website;
+
+use Database;
+
+class Food extends Database
 {
 
     // function to display food data by id

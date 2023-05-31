@@ -1,6 +1,9 @@
 <?php
 
-class manageOrder extends Database
+namespace Management;
+use Database;
+
+class ManageOrder extends Database
 {
     public function displayOrders(int $limit = 10, int $page = 1)
     {

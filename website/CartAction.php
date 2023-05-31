@@ -1,8 +1,11 @@
 <?php
 session_start();
-include __DIR__ . "../../config/Database.php";
-include_once('../classes/website/Cart.php');
-$cart = new cart();
+
+require __DIR__ . "../../vendor/autoload.php";
+
+use Website\Cart;
+
+$cart = new Cart();
 
 if (isset($_POST['add_to_cart'])) {
     $food_arr = array(

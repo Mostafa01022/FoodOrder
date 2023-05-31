@@ -1,9 +1,9 @@
 <?php
 include_once('../partials/menu.php');
 
-require "../classes/website/classCategory.php";
+use Website\Category;
 
-$category = new category();
+$category = new Category();
 $data = $category->displayCategoryByActive();
 
 ?>

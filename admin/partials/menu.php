@@ -2,7 +2,7 @@
 //require_once('../config/connection.php') ;
 
 session_start();
-include __DIR__ . "../../../config/Database.php";
+include __DIR__ . "../../../vendor/autoload.php";
 ?>
 
 <html>

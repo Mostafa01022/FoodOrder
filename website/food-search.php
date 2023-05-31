@@ -1,9 +1,10 @@
 <?php
 include_once('../partials/menu.php');
-require "../classes/website/classSearchFood.php";
+
+use Website\SearchedFood;
 
 if (isset($_POST['search'])) {
-    $display = new searchedFood();
+    $display = new SearchedFood();
     $search = $display->validateInput($display->conn, $_POST['search']);
     $dataFood = $display->displaySearched_Foods($_POST);
 } else {

@@ -1,10 +1,11 @@
 <?php
 
 session_start();
-include __DIR__ . "../../classes/website/classOrder.php";
+
+require __DIR__ . "../../vendor/autoload.php";
 
 if (isset($_POST['confirm_order'])) {
-    $order = new order();
+    $order = new \Website\Order();
     echo json_encode($order->insert_order($_POST));
     die;
 }

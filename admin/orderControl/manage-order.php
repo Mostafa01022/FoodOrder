@@ -1,8 +1,9 @@
 <?php
 include_once("../partials/menu.php");
-include __DIR__ . "../../../classes/management/classManageOrder.php";
 
-$orderData = new manageOrder();
+use Management\ManageOrder;
+
+$orderData = new ManageOrder();
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 if (isset($_GET['page']) && $_GET['page'] <= 0) {

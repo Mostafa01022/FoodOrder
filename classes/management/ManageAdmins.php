@@ -1,7 +1,9 @@
 <?php
 
+namespace Management;
+use Database;
 
-class manageAdmins extends Database
+class ManageAdmins extends Database
 {
 
     public function showAdmins()

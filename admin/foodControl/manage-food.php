@@ -1,9 +1,8 @@
 <?php
 include_once("../partials/menu.php");
-include __DIR__ . "../../../classes/management/classManageFood.php";
-include __DIR__ . "../../../classes/management/classManageCategory.php";
 
-$displayFood = new manageFood();
+$displayFood = new \Management\ManageFood();
+
 $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
 if (isset($_GET['page']) && $_GET['page'] <= 0) {
     header('location:http://localhost/php.course/food-order/admin/foodControl/manage-food.php');
@@ -14,8 +13,8 @@ $pagesCount = ceil($foodCount / $limit);
 
 $data = $displayFood->displayFoods($limit, $page);
 
-$dataCat = new manangeCategory();
-$dataCategory = new manangeCategory();
+$dataCat = new \Management\ManangeCategory();
+$dataCategory = new \Management\ManangeCategory();
 $dataCat = $dataCat->displayCategoryByActive();
 $dataCategory = $dataCategory->displayCategoryByActive();
 

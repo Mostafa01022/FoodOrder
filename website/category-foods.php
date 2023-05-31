@@ -1,12 +1,14 @@
 <?php
 include_once('../partials/menu.php');
-require "../classes/website/classCategory.php";
-require "../classes/website/classFood.php";
+
+use Website\Category;
+use Website\Food;
 
 if (isset($_GET['category_id'])) {
     $id = $_GET['category_id'];
-    $displayCategory = new category();
-    $displayFood = new food();
+
+    $displayCategory = new Category();
+    $displayFood = new Food();
     $dataFood = $displayFood->displayCategor_Foods($id);
     $dataCat = $displayCategory->displayCategoryById($id);
 } else {

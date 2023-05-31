@@ -1,6 +1,9 @@
 <?php
 
-class manageFood extends Database
+namespace Management;
+use Database;
+
+class ManageFood extends Database
 {
     public function displayFoods(int $limit = 5, int $page = 1)
     {

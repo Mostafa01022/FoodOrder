@@ -1,10 +1,10 @@
 <?php
 
 session_start();
-include __DIR__ . "../../../config/Database.php";
-include __DIR__ . "../../../classes/management/classManageAdmins.php";
 
-$manageAdmins = new manageAdmins();
+include __DIR__ . "../../../vendor/autoload.php";
+
+$manageAdmins = new \Management\ManageAdmins();
 
 if (
     isset($_POST['fullName']) && isset($_POST['username'])

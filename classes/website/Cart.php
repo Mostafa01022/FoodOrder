@@ -1,4 +1,9 @@
 <?php
+
+namespace Website;
+
+use Database;
+
 class Cart extends Database
 {
 

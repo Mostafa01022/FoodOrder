@@ -34,5 +34,5 @@
 </body>
 
 </html>
-<script src="../../jquery.min.js"></script>
+<script src="../../jsFiles/jquery.min.js"></script>
 <script src="../../jsFiles/login.js"></script>

@@ -1,6 +1,8 @@
 <?php
 session_start();
-include __DIR__ . "../../config/Database.php";
+
+require __DIR__ . "../../vendor/autoload.php";
+
 $countCart = $_SESSION['cartCountItems'] ?? 0;
 ?>
 

@@ -2,10 +2,12 @@
 <?php
 
 session_start();
-include __DIR__ . "../../../config/Database.php";
-include __DIR__ . "../../../classes/management/classManageFood.php";
 
-$manageFood = new manageFood();
+include __DIR__ . "../../../vendor/autoload.php";
+
+use Management\ManageFood;
+
+$manageFood = new ManageFood();
 
 //ADD CAT 
 if (isset($_POST['add_food'])) {

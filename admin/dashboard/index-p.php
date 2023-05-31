@@ -1,12 +1,9 @@
 <?php
 include_once("../partials/menu.php");
-include __DIR__ . "../../../classes/management/classManageCategory.php";
-include __DIR__ . "../../../classes/management/classManageFood.php";
-include __DIR__ . "../../../classes/management/classManageOrder.php";
 
-$manangeCategory = new manangeCategory();
-$manageFood = new manageFood();
-$manageOrder = new manageOrder();
+$manangeCategory = new \Management\ManangeCategory();
+$manageFood = new \Management\ManageFood();
+$manageOrder = new \Management\ManageOrder();
 
 ?>
 

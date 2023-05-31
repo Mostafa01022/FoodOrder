@@ -1,8 +1,9 @@
 <?php
 include_once("../partials/menu.php");
-include __DIR__ . "../../../classes/management/classManageCategory.php";
 
-$obj = new manangeCategory();
+use Management\ManangeCategory;
+
+$obj = new ManangeCategory();
 $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
 if (isset($_GET['page']) && $_GET['page'] <= 0) {
     header('location:http://localhost/php.course/food-order/admin/categoryControl/manage-category.php');

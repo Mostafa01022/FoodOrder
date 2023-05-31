@@ -1,7 +1,10 @@
 <?php
-include __DIR__ . "/../../config/Database.php";
 
-class order extends Database
+namespace Website;
+
+use Database;
+
+class Order extends Database
 {
   private int $orderId;
   private float $orderTotalPrice = 0;
