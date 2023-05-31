@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>login Food-Order Website</title>
+    <title>login FoodOrder Website</title>
     <link rel="stylesheet" href="../../css/login.css">
 </head>
 

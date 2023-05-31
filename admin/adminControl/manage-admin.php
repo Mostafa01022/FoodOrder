@@ -90,9 +90,9 @@ $data = $admin->showAdmins();
                             <td class="admin_full_name"><?php echo $value['full_name']; ?></td>
                             <td class="admin_username"><?php echo $value['username']; ?></td>
                             <td style=" width:25%;">
-                                <button id="update_btn" value="<?= $value['id']; ?>" class=""><img title="Update" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/update.png" /></button>
-                                <button id="change_btn" value="<?= $value['id']; ?>" class=""><img title="change password" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/change.png" /></button>
-                                <button id="delete_btn" value="<?= $value['id']; ?>" class=""><img title="Delete" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/delete.png" /></button>
+                                <button id="update_btn" value="<?= $value['id']; ?>" class=""><img title="Update" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/update.png" /></button>
+                                <button id="change_btn" value="<?= $value['id']; ?>" class=""><img title="change password" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/change.png" /></button>
+                                <button id="delete_btn" value="<?= $value['id']; ?>" class=""><img title="Delete" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/delete.png" /></button>
                             </td>
                         </tr>
                 <?php

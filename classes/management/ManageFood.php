@@ -40,7 +40,7 @@ class ManageFood extends Database
         $allowedExt = ['jpg', 'jpeg', 'png', 'gif', 'jfif'];
 
         if (in_array($imageExtention, $allowedExt)) {
-            $destFilePath =  $_SERVER['DOCUMENT_ROOT'] . '/php.course/food-order/images/food/' . $newFileName;
+            $destFilePath =  $_SERVER['DOCUMENT_ROOT'] . '/php.course/FoodOrder/images/food/' . $newFileName;
 
             if (move_uploaded_file($fileTempPath, $destFilePath)) {
                 $result = $this->conn->query("INSERT INTO tbl_food 
@@ -83,7 +83,7 @@ class ManageFood extends Database
         $allowedExt = ['jpg', 'jpeg', 'png', 'gif', 'jfif'];
 
         if (in_array($imageExtention, $allowedExt)) {
-            $destFilePath =  $_SERVER['DOCUMENT_ROOT'] . '/php.course/food-order/images/food/' . $newFileName;
+            $destFilePath =  $_SERVER['DOCUMENT_ROOT'] . '/php.course/FoodOrder/images/food/' . $newFileName;
 
             if (move_uploaded_file($fileTempPath, $destFilePath)) {
 

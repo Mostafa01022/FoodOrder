@@ -7,7 +7,7 @@ $orderData = new ManageOrder();
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 if (isset($_GET['page']) && $_GET['page'] <= 0) {
-    header('location:http://localhost/php.course/food-order/admin/orderControl/manage-order.php');
+    header('location:http://localhost/php.course/FoodOrder/admin/orderControl/manage-order.php');
 }
 //$pageNumber = $_GET['page_number'] ?? 1;
 $limit = 4;
@@ -52,9 +52,9 @@ $data = $orderData->displayOrders($limit, $page);
                         <td class="customer_address" style="width: 15%;"><?php echo $value['customer_address']; ?></td>
                         <td style="width: 10%;">
                             <button update_id="<?php echo $value['id']; ?>" class="update_btn">
-                                <img title="Update" src="http://localhost/php.course/food-order/images/website/update.png" /></button>
+                                <img title="Update" src="http://localhost/php.course/FoodOrder/images/website/update.png" /></button>
                             <button delete_id="<?php echo $value['id']; ?>" class="delete_btn">
-                                <img title="delete" src="http://localhost/php.course/food-order/images/website/delete.png" /></button>
+                                <img title="delete" src="http://localhost/php.course/FoodOrder/images/website/delete.png" /></button>
                         </td>
                     </tr>
             <?php

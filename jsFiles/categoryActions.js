@@ -39,9 +39,9 @@ $(document).ready(function () {
             <td class="category_active">${result.data.active}</td>
             <td style="width: 15%; padding:25px;">
                 <button value='${result.data.id}' class="update_btn_class">
-                    <img title="Update" src="http://localhost/php.course/food-order/images/website/update.png" /></button>
+                    <img title="Update" src="http://localhost/php.course/FoodOrder/images/website/update.png" /></button>
                 <button value='${result.data.id}' data-image_name=${result.data.image_name} class="delete_category_btn">
-                    <img title="Delete" src="http://localhost/php.course/food-order/images/website/delete.png" />
+                    <img title="Delete" src="http://localhost/php.course/FoodOrder/images/website/delete.png" />
                 </button>
             </td>
         </tr>`);

@@ -62,7 +62,7 @@ class ManangeCategory extends Database
         $allowedExt = ['jpg', 'jpeg', 'png', 'gif', 'jfif'];
 
         if (in_array($imageExtention, $allowedExt)) {
-            $destFilePath =  $_SERVER['DOCUMENT_ROOT'] . '/php.course/food-order/images/category/' . $newFileName;
+            $destFilePath =  $_SERVER['DOCUMENT_ROOT'] . '/php.course/FoodOrder/images/category/' . $newFileName;
 
             if (move_uploaded_file($fileTempPath, $destFilePath)) {
                 $result = $this->conn->query("INSERT INTO {$this->tableName} (title,image_name,featured,active) 
@@ -98,7 +98,7 @@ class ManangeCategory extends Database
         $allowedExt = ['jpg', 'jpeg', 'png', 'gif', 'jfif'];
 
         if (in_array($imageExtention, $allowedExt)) {
-            $destFilePath =  $_SERVER['DOCUMENT_ROOT'] . '/php.course/food-order/images/category/' . $newFileName;
+            $destFilePath =  $_SERVER['DOCUMENT_ROOT'] . '/php.course/FoodOrder/images/category/' . $newFileName;
 
             if (move_uploaded_file($fileTempPath, $destFilePath)) {
                 $result = $this->conn->query("UPDATE {$this->tableName} SET 
@@ -129,7 +129,7 @@ class ManangeCategory extends Database
 
     public function deleteimage($image_name)
     {
-        unlink($_SERVER['DOCUMENT_ROOT'] . '/php.course/food-order/images/category/' . $image_name);
+        unlink($_SERVER['DOCUMENT_ROOT'] . '/php.course/FoodOrder/images/category/' . $image_name);
     }
 
     public function deleteCategory($id)

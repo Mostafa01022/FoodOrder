@@ -40,9 +40,9 @@ $(document).ready(function () {
                             <td>${result.data.full_name}</td>
                             <td>${result.data.username}</td>
                             <td style=" width:25%;">
-                                <button id="update_btn" value="${result.data.id}" class=""><img title="Update" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/update.png" /></button>
-                                <button id="change_btn" value="${result.data.id}" class=""><img title="change password" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/change.png" /></button>
-                                <button id="delete_btn" value="${result.data.id}" class=""><img title="Delete" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/delete.png" /></button>
+                                <button id="update_btn" value="${result.data.id}" class=""><img title="Update" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/update.png" /></button>
+                                <button id="change_btn" value="${result.data.id}" class=""><img title="change password" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/change.png" /></button>
+                                <button id="delete_btn" value="${result.data.id}" class=""><img title="Delete" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/delete.png" /></button>
                             </td>
                         </tr>`)
                 }

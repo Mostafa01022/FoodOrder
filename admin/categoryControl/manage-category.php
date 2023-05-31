@@ -6,7 +6,7 @@ use Management\ManangeCategory;
 $obj = new ManangeCategory();
 $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
 if (isset($_GET['page']) && $_GET['page'] <= 0) {
-    header('location:http://localhost/php.course/food-order/admin/categoryControl/manage-category.php');
+    header('location:http://localhost/php.course/FoodOrder/admin/categoryControl/manage-category.php');
 }
 $catCount = $obj->categoryCount();
 $limit = 3;
@@ -128,9 +128,9 @@ $data = $obj->displayCategory($limit, $page);
                             <td class="category_active"><?php echo $value['active']; ?></td>
                             <td style="width: 15%; padding:25px;">
                                 <button value=<?= $value['id']; ?> class="update_btn_class">
-                                    <img title="Update" src="http://localhost/php.course/food-order/images/website/update.png" /></button>
+                                    <img title="Update" src="http://localhost/php.course/FoodOrder/images/website/update.png" /></button>
                                 <button value="<?= $value['id']; ?>" data-image_name="<?php echo $value['image_name']; ?>" class="delete_category_btn">
-                                    <img title="Delete" src="http://localhost/php.course/food-order/images/website/delete.png" />
+                                    <img title="Delete" src="http://localhost/php.course/FoodOrder/images/website/delete.png" />
                                 </button>
                             </td>
                         </tr>

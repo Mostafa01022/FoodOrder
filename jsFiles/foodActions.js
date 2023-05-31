@@ -38,8 +38,8 @@ $(document).on("click", "#add_btn", function () {
                 <td>${result.data.featured}</td>
                 <td>${result.data.active}</td>
                 <td>
-                    <button value="${result.data.id}" image_name="${result.data.image_name}" id="update_btn"><img title="Update" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/update.png" /></button>
-                    <button value="${result.data.id} ?>" image_name="${result.data.image_name}" id="delete_food_btn"><img title="Delete" style=" padding:10px;" src="http://localhost/php.course/food-order/images/website/delete.png" /></button>
+                    <button value="${result.data.id}" image_name="${result.data.image_name}" id="update_btn"><img title="Update" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/update.png" /></button>
+                    <button value="${result.data.id} ?>" image_name="${result.data.image_name}" id="delete_food_btn"><img title="Delete" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/delete.png" /></button>
                 </td>
             </tr>`)
 

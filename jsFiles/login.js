@@ -10,7 +10,7 @@ $("#login_form").on("submit", function () {
         success: function (result) {
             if (result.success == true) {
                 // redirect home page
-                window.location.href = 'http://localhost/php.course/food-order/admin/dashboard/index-p.php';
+                window.location.href = 'http://localhost/php.course/FoodOrder/admin/dashboard/index-p.php';
                 $("#action_message").html(result.message)
 
             } else {

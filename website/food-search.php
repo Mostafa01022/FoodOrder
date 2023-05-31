@@ -8,7 +8,7 @@ if (isset($_POST['search'])) {
     $search = $display->validateInput($display->conn, $_POST['search']);
     $dataFood = $display->displaySearched_Foods($_POST);
 } else {
-    header("location:http://localhost/php.course/food-order/website/foods.php");
+    header("location:http://localhost/php.course/FoodOrder/website/foods.php");
 }
 ?>
 
