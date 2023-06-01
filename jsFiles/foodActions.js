@@ -1,16 +1,20 @@
 
 //////====ADD Food ====////
 
-$(document).on("click", "#add_btn", function () {
-    $("#addFoodPopup").show();
-    $(".tbl-full").hide();
-    $("#add_btn").hide();
+$(document).ready(function () {
+
+    $("#add_btn").on("click", function () {
+        $("#addFoodPopup").show();
+        $(".tbl-full").hide();
+        $("#add_btn").hide();
+    });
 
     $("#closeAddForm").on("click", function () {
         $("#addFoodPopup").hide();
         $(".tbl-full").show();
         $("#add_btn").show();
     });
+
     $("#addFoodForm").on("submit", function (e) {
         e.preventDefault();
 
@@ -54,13 +58,13 @@ $(document).on("click", "#add_btn", function () {
 });
 //////====UPDATE FOOD ====////
 
-$(document).on("click", "#update_btn", function () {
-
+$(document).on("click", ".update_btn", function () {
+    let food_id = $(this).val();
     $.ajax({
         url: 'foodActions.php',
         method: 'get',
         data: {
-            update_id: $("#update_btn").val(),
+            update_id: food_id
         },
         dataType: 'json',
         success: function (result, status) {
@@ -70,59 +74,62 @@ $(document).on("click", "#update_btn", function () {
             $("#old_image").val(result.data.image_name);
         }
     });
+
     $("#updateFoodPopup").show();
     $(".tbl-full").hide();
     $("#add_btn").hide();
 
-    $("#closeUpdateForm").on("click", function () {
-        $("#updateFoodPopup").hide();
-        $(".tbl-full").show();
-        $("#add_btn").show();
-    });
-    $("#updateFoodForm").on("submit", function (e) {
+});
 
-        e.preventDefault();
-        let id = $("#update_id").val();
-        let trRow = $("#food_row_" + id);
+$("#closeUpdateForm").on("click", function () {
+    $("#updateFoodPopup").hide();
+    $(".tbl-full").show();
+    $("#add_btn").show();
+});
 
+$("#updateFoodForm").on("submit", function (e) {
 
-        $.ajax({
-            url: 'foodActions.php',
-            method: 'post',
-            data: new FormData(this),
-            dataType: 'json',
-            processData: false,
-            contentType: false,
-            success: function (result, status) {
-                console.log(result);
-                console.log(status);
-                $("#updateFoodPopup").hide();
-                $(".tbl-full").show();
-                $("#add_btn").show();
-                $("#action_message").html(result.message);
-                $("#updateFoodForm")[0].reset();
-                trRow.find(".food_title").html(result.data.title);
-                trRow.find(".food_image").html("<img src='../../images/food/" + result.data.image_name + "' width='100px'>");
-                trRow.find(".food_featured").html(result.data.featured);
-                trRow.find(".food_active").html(result.data.active);
-                trRow.find(".food_price").html(result.data.price);
-                trRow.find(".food_description").html(result.data.description);
+    e.preventDefault();
+    let id = $("#update_id").val();
+    let trRow = $("#food_row_" + id);
+    $.ajax({
+        url: 'foodActions.php',
+        method: 'post',
+        data: new FormData(this),
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        success: function (result, status) {
+            console.log(result);
+            console.log(status);
+            $("#updateFoodPopup").hide();
+            $(".tbl-full").show();
+            $("#add_btn").show();
+            $("#action_message").html(result.message);
+            $("#updateFoodForm")[0].reset();
+            trRow.find(".food_title").html(result.data.title);
+            trRow.find(".food_image").html("<img src='../../images/food/" + result.data.image_name + "' width='100px'>");
+            trRow.find(".food_featured").html(result.data.featured);
+            trRow.find(".food_active").html(result.data.active);
+            trRow.find(".food_price").html(result.data.price);
+            trRow.find(".food_description").html(result.data.description);
 
-            },
-            error: function (xhr, status, error) {
-                console.log(xhr);
-                console.log(status);
-                console.log(error);
-            }
-        })
+        },
+        error: function (xhr, status, error) {
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
     });
 });
+
+
 
 
 ///====DELETE food====////
 
 
-$(document).on("click", "#delete_food_btn", function () {
+$(document).on("click", ".delete_food_btn", function () {
     let btn = $(this);
     $.ajax({
         url: "foodActions.php",

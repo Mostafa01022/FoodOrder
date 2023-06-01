@@ -186,8 +186,8 @@ $dataCategory = $dataCategory->displayCategoryByActive();
                             <td class="food_featured"><?php echo $value['featured'] ?></td>
                             <td class="food_active"><?php echo $value['active'] ?></td>
                             <td>
-                                <button value="<?php echo $value['id']; ?>" image_name="<?php echo $value['image_name']; ?>" id="update_btn"><img title="Update" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/update.png" /></button>
-                                <button value="<?php echo $value['id']; ?>" image_name="<?php echo $value['image_name']; ?>" id="delete_food_btn"><img title="Delete" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/delete.png" /></button>
+                                <button value="<?php echo $value['id']; ?>" image_name="<?php echo $value['image_name']; ?>" class="update_btn"><img title="Update" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/update.png" /></button>
+                                <button value="<?php echo $value['id']; ?>" image_name="<?php echo $value['image_name']; ?>" class="delete_food_btn"><img title="Delete" style=" padding:10px;" src="http://localhost/php.course/FoodOrder/images/website/delete.png" /></button>
                             </td>
                         </tr>
                 <?php

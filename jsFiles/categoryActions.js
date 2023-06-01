@@ -75,10 +75,12 @@ $(document).ready(function () {
                 }
             }
         });
+
         $("#updateCatPopup").show();
         $(".tbl-full").hide();
         $("#add_btn").hide();
     });
+    
     $("#closeUpdateForm").on("click", function () {
 
         $(".tbl-full").show();
