@@ -29,18 +29,20 @@ class ComposerStaticInit2f9ac2e8d764dc9a0a9c9434709e83b0
     );
 
     public static $classMap = array (
+        'CheckIdentity' => __DIR__ . '/../..' . '/classes/login/CheckIdentity.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Database' => __DIR__ . '/../..' . '/config/Database.php',
+        'FormValidator' => __DIR__ . '/../..' . '/classes/FormValidate/FormValidator.php',
         'Management\\ManageAdmins' => __DIR__ . '/../..' . '/classes/management/ManageAdmins.php',
         'Management\\ManageFood' => __DIR__ . '/../..' . '/classes/management/ManageFood.php',
         'Management\\ManageOrder' => __DIR__ . '/../..' . '/classes/management/ManageOrder.php',
         'Management\\ManangeCategory' => __DIR__ . '/../..' . '/classes/management/ManageCategory.php',
+        'Users' => __DIR__ . '/../..' . '/classes/user/Users.php',
         'Website\\Cart' => __DIR__ . '/../..' . '/classes/website/Cart.php',
         'Website\\Category' => __DIR__ . '/../..' . '/classes/website/Category.php',
         'Website\\Food' => __DIR__ . '/../..' . '/classes/website/Food.php',
         'Website\\Order' => __DIR__ . '/../..' . '/classes/website/Order.php',
         'Website\\SearchedFood' => __DIR__ . '/../..' . '/classes/website/SearchFood.php',
-        'checkAdmin' => __DIR__ . '/../..' . '/classes/login/checkAdmin.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

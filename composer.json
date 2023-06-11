@@ -2,7 +2,7 @@
     "name": "dubai_key/food-order",
    
         "autoload": {
-            "classmap": ["classes/management","classes/login","classes/website","config/Database.php"],
+            "classmap": ["classes","config/Database.php"],
             "psr-4": {
                 "Management\\": "src/",
                 "website\\":"src/"

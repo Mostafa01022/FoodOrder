@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2023 at 06:11 PM
+-- Generation Time: Jun 08, 2023 at 12:00 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -39,9 +39,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id`, `full_name`, `username`, `password`) VALUES
-(173, 'mostafa', 'aa', '4124bc0a9335c27f086f24ba207a4912'),
-(174, 'a', 'a', '0cc175b9c0f1b6a831c399e269772661'),
-(175, 'a', 'a', '0cc175b9c0f1b6a831c399e269772661');
+(176, 'mostafa', 'mostafa', '0cc175b9c0f1b6a831c399e269772661');
 
 -- --------------------------------------------------------
 
@@ -118,7 +116,7 @@ CREATE TABLE `tbl_order` (
 INSERT INTO `tbl_order` (`id`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`, `total_price`) VALUES
 (17, '2023-05-26 10:07:42', 'cancelled', 'mostafa ramadan', '01270677898', 'mostafa@order', 'xlnzjkxkl', 55),
 (20, '2023-05-26 02:57:57', 'delivered', 'mostafa ramadan', 'wefre', 'mostafa@order', 'xlnzjkxkl54545', 20),
-(21, '2023-05-26 03:00:54', 'on delivery', 'mostafa ramadan', '01270677898', 'mostafa@order', 'xlnzjkxkl54545', 10915),
+(21, '2023-05-26 03:00:54', 'delivered', 'mostafa ramadan', '01270677898', 'mostafa@order', 'xlnzjkxkl54545', 10915),
 (22, '2023-05-27 11:43:35', 'delivered', 'mostafa ramadan', '0111', 'mostafa@order', 'xlnzjkxkl54545', 1012);
 
 -- --------------------------------------------------------
@@ -157,6 +155,26 @@ INSERT INTO `tbl_order_items` (`id`, `food_title`, `food_id`, `food_quantity`, `
 (46, 'fg', 60, 1, 5, 5, 25),
 (47, 'fg', 60, 1, 5, 5, 26);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_users`
+--
+
+CREATE TABLE `tbl_users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tbl_users`
+--
+
+INSERT INTO `tbl_users` (`id`, `username`, `password`) VALUES
+(15, 'mostafa', 'c4ca4238a0b923820dcc509a6f75849b'),
+(16, 'omar', 'c81e728d9d4c2f636f067f89cc14862c');
+
 --
 -- Indexes for dumped tables
 --
@@ -194,6 +212,12 @@ ALTER TABLE `tbl_order_items`
   ADD KEY `order_id` (`order_id`);
 
 --
+-- Indexes for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -201,13 +225,13 @@ ALTER TABLE `tbl_order_items`
 -- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
 -- AUTO_INCREMENT for table `tbl_food`
@@ -226,6 +250,12 @@ ALTER TABLE `tbl_order`
 --
 ALTER TABLE `tbl_order_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- AUTO_INCREMENT for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

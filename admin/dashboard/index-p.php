@@ -11,13 +11,13 @@ $manageOrder = new \Management\ManageOrder();
     <div class="wrapper">
         <h1> Dashboard</h1>
         <br>
+        <br>
         <?php
         if (isset($_SESSION['admin'])) {
             echo "<div class='success'> Hello " . $_SESSION['admin'] . "</div>";
             unset($_SESSION['admin']);
         }
         ?>
-        <br>
         <div id="action_message"></div>
         <br>
         <div class=" col-4 text-center">

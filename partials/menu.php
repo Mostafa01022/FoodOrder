@@ -46,6 +46,9 @@ $countCart = $_SESSION['cartCountItems'] ?? 0;
                             <span id="cartCountItems"><?= $countCart; ?></span>
                         </a>
                     </li>
+                    <li>
+                        <a href="../admin//access/logout.php">Log Out</a>
+                    </li>
                 </ul>
             </div>
 

@@ -1,8 +1,10 @@
 <?php
 
 require_once('../partials/menu.php');
+
 use Website\Category;
 use Website\Food;
+
 $displayCategory = new Category();
 $displayFood = new Food();
 $dataCat = $displayCategory->displayCategoryByActive_Featured();
@@ -21,7 +23,14 @@ $dataFood = $displayFood->displayFoodByActive_Featured();
 
     </div>
 </section>
-
+<br>
+<?php
+        if (isset($_SESSION['user'])) {
+            echo "<div class='success'> Hello " . $_SESSION['user'] . "</div>";
+            unset($_SESSION['user']);
+        }
+        ?>
+<div id="action_message"></div>
 <!-- CAtegories Section Starts Here -->
 <section class="categories">
     <div class="container">
